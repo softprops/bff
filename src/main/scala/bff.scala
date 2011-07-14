@@ -4,8 +4,8 @@ object @#^* {
   def emptyin[T](out: Int => T) = apply(0, out)_
 
   def apply[T](in: => Int, out: Int => T)(src: String) =
-    (List.fill(30000)(0), src.toArray) match {
-      case (cells, cmds) =>
+    src.toArray match {
+      case cmds =>
         @annotation.tailrec def next(state: List[Int], ls: List[(Int, Int)], dp: Int, ip: Int): Unit =
           if(ip < cmds.size) {
             cmds(ip) match {
@@ -24,6 +24,6 @@ object @#^* {
               case _ => next(state, ls, dp, ip)
             }
           }
-        next(cells, Nil, 0, 0)
+        next(List.fill(30000)(0), Nil, 0, 0)
     }
 }

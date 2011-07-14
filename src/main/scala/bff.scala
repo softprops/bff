@@ -23,6 +23,6 @@ object @#^* {
               case _ => next(state, ls, dp, ip)
             }
           }
-      next(cells, Nil, 0, 0)
+        next(cells, Nil, 0, 0)
     }
 }

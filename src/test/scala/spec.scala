@@ -6,8 +6,8 @@ object Spec extends Specification {
   "@#^*" should {
     "run hello world" in {
        val b = new scala.collection.mutable.ListBuffer[Char]
-       @#^*("++++++++++[>+++++++>++++++++++>+++>+<<<<-]>++.>+.+++++++..+++.>++.<<+++++++++++++++.>.+++.------.--------.>+.>.")(c =>
-          b.append(c.toChar)
+       @#^*.emptyin(c => b.append(c.toChar))(
+         "++++++++++[>+++++++>++++++++++>+++>+<<<<-]>++.>+.+++++++..+++.>++.<<+++++++++++++++.>.+++.------.--------.>+.>."
        )
        b.mkString("") must_== "Hello World!\n"
     }

@@ -3,7 +3,7 @@ package bff
 object @#^* {
   /** @param in - a string of instructions */
   def apply[T](in: String)(out: Int => T) =
-    (List.fill(in.length)(0), in.toArray) match {
+    (List.fill(30000)(0), in.toArray) match {
       case (cells, cmds) =>
         @annotation.tailrec def next(state: List[Int], ls: List[(Int, Int)], dp: Int, ip: Int): Unit =
           if(ip < cmds.size) {
